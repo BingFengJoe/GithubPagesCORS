@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域請求示例</title>
+</head>
+<body>
+    <h1>跨域請求示例</h1>
+    <button id="fetch-data">獲取資料</button>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById('fetch-data').addEventListener('click', () => {
+            fetch('https://api.sampleapis.com/futurama/characters')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
+
